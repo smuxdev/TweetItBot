@@ -1,13 +1,19 @@
 package com.smux.tweetitbot.data;
 
-public class ImagenBd
-{
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("imagenDb")
+public class ImagenDb {
+    @Id
+    private String id;
     private String fecha;
     private String explicacion;
     private String titulo;
     private String url;
 
-    public ImagenBd(String fecha, String explicacion, String titulo, String url) {
+    public ImagenDb() {}
+    public ImagenDb(String fecha, String explicacion, String titulo, String url) {
         this.fecha = fecha;
         this.explicacion = explicacion;
         this.titulo = titulo;
@@ -46,9 +52,14 @@ public class ImagenBd
         this.url = url;
     }
 
+    public String getId() { return id; }
+
+    public void setId(String id) { this.id = id; }
+
     @Override
     public String toString() {
         return "ImagenBd{" +
+                "id=" + id + '\'' +
                 "fecha='" + fecha + '\'' +
                 ", explicacion='" + explicacion + '\'' +
                 ", titulo='" + titulo + '\'' +
