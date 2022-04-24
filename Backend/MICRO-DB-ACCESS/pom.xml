@@ -9,15 +9,19 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.smux</groupId>
-	<artifactId>tweetitbot-api</artifactId>
+	<artifactId>db-access-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>tweetitbot-api</name>
-	<description>Tweetea y almacen en una BD la imagen del día de la NASA</description>
+	<name>db-access-api</name>
+	<description>Microservicios de acceso a Base de Datos</description>
 	<properties>
 		<java.version>11</java.version>
-		<start-class>com.smux.tweetitbot.TweetitbotApplication</start-class>
+		<start-class>com.smux.dbaccessapi.DbAccessApiApplication</start-class>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -27,12 +31,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-
-		<!-- mongo -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 
 		<!-- swagger -->
@@ -58,9 +56,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<mainClass>${start-class}</mainClass>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
