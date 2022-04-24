@@ -1,11 +1,6 @@
 package com.smux.tweetitbot.data;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document("imagenDb")
 public class ImagenDb {
-    @Id
     private String id;
     private String fecha;
     private String explicacion;
