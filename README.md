@@ -38,9 +38,8 @@
 
 ---
 
-NASA API Imagen del día, ejemplo:
-
-```
+## NASA API Imagen del día, ejemplo:
+````
  GET:  <https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2022-04-23>
 
  Respuesta:
@@ -53,4 +52,11 @@ NASA API Imagen del día, ejemplo:
  "title": "Messier 104",
  "url": "https://apod.nasa.gov/apod/image/2204/M104_HST_final2_1024.jpg"
  }
-```
+````
+---
+
+# Ayudas al desarrollo
+	- Arrancar mongo en Docker: docker run -p 127.0.0.1:27017:27017 --name some-mongo -d mongo
+	- Arrancar aplicación Spring Boot:
+		- O bien construir Jar con Maven: mvn package, y luego ejecutarlo: java -jar ./target/tweetitbot-api-0.0.1-SNAPSHOT.jar
+		- O bien utilicar el comando: mvn spring-boot:run
