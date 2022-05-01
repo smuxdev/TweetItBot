@@ -56,7 +56,11 @@
 ---
 
 # Ayudas al desarrollo
-	- Arrancar mongo en Docker: docker run -p 127.0.0.1:27017:27017 --name some-mongo -d mongo
+	- Arrancar mongo en Docker: docker run -p 127.0.0.1:27017:27017 --name mongo_on_docker -d mongo
+	- Arrancar Kafka en Docker: 
+		$ curl -sSL https://raw.githubusercontent.com/bitnami/bitnami-docker-kafka/master/docker-compose.yml > docker-compose.yml
+		$ docker-compose up -d
+	- Monitorizar Kafka: Mediante la aplicación "Offset Explorer 2.2"
 	- Arrancar aplicación Spring Boot:
 		- O bien construir Jar con Maven: mvn package, y luego ejecutarlo: java -jar ./target/tweetitbot-api-0.0.1-SNAPSHOT.jar
 		- O bien utilicar el comando: mvn spring-boot:run

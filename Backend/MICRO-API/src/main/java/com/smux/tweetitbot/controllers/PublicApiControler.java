@@ -9,9 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="/api")
-public class PublicApiControler
-{
+@RequestMapping(value = "/api")
+public class PublicApiControler {
     /**
      *
      * @param number: número de imágenes a recuperar
@@ -19,20 +18,25 @@ public class PublicApiControler
      */
     @GetMapping("/savedImages")
     public List<ImagenDb> getSavedImages(@RequestParam(value = "number", defaultValue = "3") String number) {
-        //List<ImagenDb> imagenes = Arrays.asList(new ImagenDb("12/12/2022", "Una explicación", "Galaxia", " Una URL"), new ImagenDb("15/15/2021", "Una explicación extra", "Sistema Solar", " Una URL u otra"));
+        System.out.println("En servicio GET: /savedImages");
         // TODO: Consultar, vía Kafka, del servicio de consulta de BD
+        // Invocación del servicio de consulta de BD vía API REST
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<ImagenDb[]> response = restTemplate.getForEntity("http://localhost:8081/api/getImagesFromDb", ImagenDb[].class);
+        ResponseEntity<ImagenDb[]> response = restTemplate.getForEntity("http://localhost:8081/api/getImagesFromDb",
+                ImagenDb[].class);
         ImagenDb[] images = response.getBody();
+
+        System.out.println("Hay " + images.length + " imagenes en la BD.");
 
         return Arrays.asList(images);
     }
 
     @PostMapping(value = "/postTweet", produces = "application/json")
     public String postTweet() {
-        // TODO: Comprobar que la imagen del día no ha sido ya tweeteada consultado al servicio que accede a la BD
+        // TODO: Comprobar que la imagen del día no ha sido ya tweeteada consultado al
+        // servicio que accede a la BD
         // TODO: Consumir la API de la NASA para consultar la imagen del día
-        //  https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
+        // https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
 
         // TODO: Invocar, vía Kafka, al servicio que haga la actualización en BD
 
